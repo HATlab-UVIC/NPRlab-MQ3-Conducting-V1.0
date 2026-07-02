@@ -8,6 +8,7 @@ public class Trail : MonoBehaviour
     private List<TrailPoint> trailPoints = new List<TrailPoint>();
     private int updateFrequencyAddCounter;
     private LineRenderer lineRenderer;
+    private bool newTrailAdded = false;
 
     void Start() {
         lineRenderer = GetComponent<LineRenderer>();
@@ -49,6 +50,7 @@ public class Trail : MonoBehaviour
                 trailPoints.RemoveAt(trailPoints.Count - 1);
             }
         }
+        newTrailAdded = true;
         RenderTrail();
     }
 
@@ -59,5 +61,17 @@ public class Trail : MonoBehaviour
             Vector3 position = trailPoints[i].GetPositionAndRotation().position;
             lineRenderer.SetPosition(i, position);
         }
+    }
+
+    public List<TrailPoint> GetTrail() {
+        return trailPoints;
+    }
+
+    public bool IsNewTrailAdded() {
+        return newTrailAdded;
+    }
+
+    public void SetIsNewTrailAdded(bool val) {
+        newTrailAdded = val;
     }
 }
