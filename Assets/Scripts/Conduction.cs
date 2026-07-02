@@ -9,7 +9,7 @@ public class Conduction : MonoBehaviour
     [SerializeField] private Instrument[] instruments;
     private List<TrailPoint> trail;
     private bool isGrabbed = false;
-    private int numberOfIgnoredFramesUntilNextSwing = 30;
+    private int numberOfIgnoredFramesUntilNextSwing = 3;
     private int IgnoredFramesUntilNextSwingCounter = 0;
 
     // temp. Will need to update by actual sheet music nodes with time
